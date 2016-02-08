@@ -1,6 +1,6 @@
 <?php 
 
-class UserController{
+class UserController extends AbstractController{
   public function formloginAction(){
     $view = include("../view/loginform.php");
     return $view;

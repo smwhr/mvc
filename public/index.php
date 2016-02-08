@@ -14,15 +14,17 @@ if(isset($_GET['action'])){
 
 $class_name = ucfirst($controller_name)
                    ."Controller";
+
+global $pdo;
 try{
-  $controller = new $class_name();
+  $controller = new $class_name($pdo);
 }catch(Exception $e){
-  $controller = new ErrorController();
+  $controller = new ErrorController($pdo);
 }
 
 $action = strtolower($action_name)."Action";
 if(!method_exists($controller,$action)){
-  $controller = new ErrorController();
+  $controller = new ErrorController($pdo);
   $action = "e404";
 }
 

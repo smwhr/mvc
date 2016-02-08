@@ -1,7 +1,13 @@
 <?php
 
-class IndexController{
+class IndexController extends AbstractController{
   public function indexAction(){
-    return "INDEX !";
+    $res = $this->pdo->query("SELECT * FROM destinations");
+    $destinations = [];
+    foreach ($res as $row) {
+      $destinations[] = $row;
+    }
+    $content = include("../view/index.php");
+    return $content;
   }
 }
