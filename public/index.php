@@ -1,9 +1,16 @@
 <?php
 require_once("../utils/init.php");
 
-$controller_name = $_GET['controller'];
-$action_name = $_GET['action'];
-
+if(isset($_GET['controller'])){
+  $controller_name = $_GET['controller'];  
+}else{
+  $controller_name = "index";  
+}
+if(isset($_GET['action'])){
+  $action_name = $_GET['action'];
+}else{
+  $action_name = "index";
+}
 
 $class_name = ucfirst($controller_name)
                    ."Controller";
