@@ -1,6 +1,9 @@
 <?php
 require_once("../utils/init.php");
 
+$called_url = $_SERVER['REQUEST_URI'];
+var_dump($called_url);
+
 if(isset($_GET['controller'])){
   $controller_name = $_GET['controller'];  
 }else{
