@@ -12,7 +12,13 @@ class CityController extends AbstractController{
     return json_encode(["error"=>"not implemented"]);
   }
   public function deleteAction(){
-    return json_encode(["error"=>"not implemented"]);
+    $city_id = $_POST['city_id'];
+
+    $q = $this->pdo->prepare('DELETE FROM destinations WHERE id = :city_id');
+    $q->bindParam('city_id',$city_id);
+    $q->execute();
+    
+    return json_encode(["message"=>"Supprimé !", "city_id"=>$city_id]);
   }
   
 }

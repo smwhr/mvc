@@ -20,9 +20,15 @@ $(document).on('click','.city-delete', function(e){
 
   var city_id = $(this).data('cityid');
 
-  $.post('/city/delete/'+city_id,function(data){
-    console.log(data);
-  })
+  $.post('/city/delete',{'city_id':city_id},function(data){
+    if(typeof(data.error) != "undefined"){
+      alert(data.error);
+    }else{
+      var deleted_city = data.city_id
+      $('#city-'+deleted_city).remove();
+      alert(data.message);
+    }
+  },'json')
 
   e.preventDefault();
 })
