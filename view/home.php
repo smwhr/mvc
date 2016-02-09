@@ -7,7 +7,10 @@
 <body>
   <ul>
   <?php foreach($destinations as $ville):?>
-    <li><?php echo $ville["name"];?></li>
+    <li>
+    <?php echo $ville["name"];?>
+    <a href="/city/delete/<?php echo $ville['id']?>">X</a>
+    </li>
   <?php endforeach;?>
   </ul>
 </body>
