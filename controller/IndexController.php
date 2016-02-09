@@ -7,9 +7,9 @@ class IndexController extends AbstractController{
     foreach ($res as $row) {
       $destinations[] = $row;
     }
-    $content = include("../view/index.php");
+    $content = include("../view/home.php");
     return $content;
   }
 
-  
+
 }

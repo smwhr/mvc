@@ -15,6 +15,9 @@ if(isset($_GET['action'])){
   $action_name = "index";
 }
 
+var_dump($controller_name);
+var_dump($action_name);
+
 $class_name = ucfirst($controller_name)
                    ."Controller";
 
