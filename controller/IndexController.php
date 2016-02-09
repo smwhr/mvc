@@ -10,4 +10,6 @@ class IndexController extends AbstractController{
     $content = include("../view/index.php");
     return $content;
   }
+
+  
 }
