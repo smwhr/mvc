@@ -19,8 +19,9 @@
 $(document).on('click','.city-delete', function(e){
 
   var city_id = $(this).data('cityid');
+
   $.post('/city/delete/'+city_id,function(data){
-    console.log(data)
+    console.log(data);
   })
 
   e.preventDefault();
