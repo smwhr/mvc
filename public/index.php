@@ -2,21 +2,23 @@
 require_once("../utils/init.php");
 
 $called_url = $_SERVER['REQUEST_URI'];
-var_dump($called_url);
+$url_composants = explode("/",$called_url,4);
 
-if(isset($_GET['controller'])){
-  $controller_name = $_GET['controller'];  
+if(isset($url_composants[1])){
+  if(strlen($url_composants[1]) ==0){
+    $controller_name = "index"; 
+  }else{
+    $controller_name = $url_composants[1];    
+  }
+  
 }else{
   $controller_name = "index";  
 }
-if(isset($_GET['action'])){
-  $action_name = $_GET['action'];
+if(isset($url_composants[2])){
+  $action_name = $url_composants[2];
 }else{
   $action_name = "index";
 }
-
-var_dump($controller_name);
-var_dump($action_name);
 
 $class_name = ucfirst($controller_name)
                    ."Controller";
