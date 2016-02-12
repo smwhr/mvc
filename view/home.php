@@ -15,6 +15,11 @@
   <?php endforeach;?>
   </ul>
 
+  <form class="city-add">
+    Nom : <input type="name"><br>
+    <input type="submit" value="Add">
+  </form>
+
 <script>
 $(document).on('click','.city-delete', function(e){
 
@@ -32,6 +37,19 @@ $(document).on('click','.city-delete', function(e){
 
   e.preventDefault();
 })
+
+$(document).on('submit','.city-add', function(e){
+
+  $.post("/city/create",$(this).serialize(),function(data){
+    if(typeof(data.error) != "undefined"){
+      alert(data.error);
+    }else{
+      //TODO
+    }
+  },'json');
+
+  return false;
+});
 </script>
 
 </body>

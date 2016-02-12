@@ -38,6 +38,8 @@ if(!method_exists($controller,$action)){
 
 $result = $controller->$action();
 
-echo $result;
+if(is_string($result)){
+  echo $result;
+}
 
 
