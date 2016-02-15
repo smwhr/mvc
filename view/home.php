@@ -6,7 +6,7 @@
   <script src="http://code.jquery.com/jquery-2.2.0.min.js"></script>
 </head>
 <body>
-  <ul>
+  <ul class="city_list">
   <?php foreach($destinations as $ville):?>
     <li class="city" id="city-<?php echo $ville['id']?>">
     <?php echo $ville["name"];?>
@@ -31,7 +31,6 @@ $(document).on('click','.city-delete', function(e){
     }else{
       var deleted_city = data.city_id
       $('#city-'+deleted_city).remove();
-      alert(data.message);
     }
   },'json')
 
@@ -44,7 +43,12 @@ $(document).on('submit','.city-add', function(e){
     if(typeof(data.error) != "undefined"){
       alert(data.error);
     }else{
-      console.log(data);
+      var newli = $('<li class="city" id="city-'+data.city_id+'">'
+                    +data.city_name
+                    +' <a class="city-delete" href="#" data-cityid="'
+                    +data.city_id+'">X</a></li>');
+      $('.city_list').append(newli);
+      $('.city-add input[name=city_name]').val("");
     }
   },'json');
 
