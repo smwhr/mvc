@@ -16,7 +16,7 @@
   </ul>
 
   <form class="city-add">
-    Nom : <input type="name"><br>
+    Nom : <input type="name" name="city_name"><br>
     <input type="submit" value="Add">
   </form>
 
@@ -44,7 +44,7 @@ $(document).on('submit','.city-add', function(e){
     if(typeof(data.error) != "undefined"){
       alert(data.error);
     }else{
-      //TODO
+      console.log(data);
     }
   },'json');
 

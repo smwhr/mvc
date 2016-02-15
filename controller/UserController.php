@@ -1,17 +1,10 @@
 <?php 
 
 class UserController extends AbstractController{
-  public function formloginAction(){
-    $view = include("../view/loginform.php");
-    return $view;
-  }
-
-  public function postloginAction(){
-    if(isset($_POST['login'])){
-      return json_encode(true);
-    }else{
-      return json_encode(false);
-    }
-  }
+  
+  public function showAction(){}
+  public function editAction(){}
+  public function formAction(){}
+  public function deleteAction(){}
   
 }

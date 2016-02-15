@@ -1,10 +1,21 @@
 <?php
 spl_autoload_register(function($class_name){
-  $controller_file = "../controller/"
+
+  if(substr($class_name, -10) == "Controller"){
+    $class_file = "../controller/"
                    .$class_name
-                   .".php";
-  if(!file_exists($controller_file)){
-    throw new Exception("Cannot find ".$controller_file);
+                   .".php";  
   }
-  require_once($controller_file);
+
+  if(substr($class_name, -5) == "Model"){
+    $class_file = "../model/"
+                   .$class_name
+                   .".php";  
+  }
+
+  
+  if(!file_exists($class_file)){
+    throw new Exception("Cannot find ".$class_file);
+  }
+  require_once($class_file);
 });
